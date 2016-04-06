@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>DCOM OR NAH</title>
+		<link href="DCOMorNahCSS.css" rel="stylesheet" type="text/css">
+        	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js" type="text/javascript"></script>
+        	<script>
+        		var score = 0; //variable to hold the score
+				/*Kaitlyn's code*/
+				$(document).ready(function() {
+					$('#GradeAPlus').hide();
+					$('#GradeA').hide();
+					$('#GradeB').hide();
+					$('#GradeC').hide();
+					$('#GradeD').hide();
+					$('#GradeF').hide();//hides grades until score decides corresponding div
+
+					//Ryan (and Shapiro's) code
+					function getQueryVariable(variable) //Shapiro's function for reading the URL
+					{
+				       var query = window.location.search.substring(1); //substring and parsing stuff
+				       var vars = query.split("&");
+				       for (var i=0;i<vars.length;i++) {
+			               var pair = vars[i].split("=");
+			               if(pair[0] == variable){return pair[1];}
+				       }
+				       return(false);
+					}
+
+					score = getQueryVariable("NScore"); //grab the score out of the URL
+					score = Number(score); //convert the score string into a number, so math can be done on it
+					$("#b").html(score); //update score in html
+
+					if (score < 150) { //if else structure to decide which end game score div to display
+						$("#GradeF").show("slow"); //if score less than 150, display F score
+					}
+					else if (score >=150 && score < 200) {
+						$("#GradeD").show("slow"); //if score between 150 and 199, display D score
+					}
+					else if (score >=200 && score < 250) {
+						$("#GradeC").show("slow"); //if score between 200 and 249, display C score
+					}
+					else if (score >=250 && score < 300) {
+						$("#GradeB").show("slow"); //if score between 250 and 299, display B score
+					}
+					else if (score >=300 && score < 350) {
+						$("#GradeA").show("slow"); //if score between 300 and 349, display A score
+					}
+					else {
+						$("#GradeAPlus").show("slow"); //if perfect score (350), display A++ score
+					}
+				}); //end document.ready
+
+				function playAgain() { //function to go to first page and start game over
+					window.location.href = "Final_Round1.html";
+				}
+			</script>
+	</head>
+	<body>
+    
+        <!--Laura, Kaitlyn, and Ryan's code-->
+        <div id="wrapperresults">
+			<header>
+				<center><img src="Images/HEADER-01.png" alt="header" width="818" height="148"/></center>
+			</header>
+
+			<div id="bottomheader">
+				<div id="finalScore">
+					<center>Final Score: <b id="b"></b> points!</center>
+				</div>
+            </div>
+
+
+	        <!--Kaitlyn's code-->
+			<div id="GradeAPlus">
+				<h2>Congratulations, you got an A++!</h2>
+				<p>Great job, you are a top student. You know everything about Digital Communications.  You deserve some root beer and tater tots.</p>
+				<img src="Images/GradeAPlus.gif" alt="" height="200" width="200" class="gradeimages"/>
+			</div>
+			<div id="GradeA">
+				<h2>Great job, you got an A!</h2>
+				<p>You are definitely a teacher's pet.  You have done star work as a DigiCom student!</p>
+				<img src="Images/GradeA.gif" alt="" height="200" width="200" class="gradeimages"/>
+			</div>
+			<div id="GradeB">
+				<h2>Great work, you got a B!</h2>
+				<p>You are doing fantastic!  Keep working hard to learn more DCOM knowledge.</p>
+				<img src="Images/GradeB.gif" alt="" height="200" width="200" class="gradeimages"/>
+			</div>
+			<div id="GradeC">
+				<h2>Good job, you got a C!</h2>
+				<p>You need to study a little more so you know more about Digital Communications.</p>
+				<img src="Images/GradeC.gif" alt="" height="200" width="200" class="gradeimages"/>
+			</div>
+			<div id="GradeD">
+				<h2>Uh oh, you got a D!</h2>
+				<p>Fail early, fail often, fail forward.  Looks like you need to work on your DigiCom knowledge!</p>
+				<img src="Images/GradeD.gif" alt="" height="200" width="200" class="gradeimages"/>
+			</div>
+			<div id="GradeF">
+				<h2>Ouch, you got an F!</h2>
+				<p>Looks like we will see you back in DCOM next year! Keep your head up, you can do it!</p>
+				<img src="Images/GradeF.gif" alt="" height="200" width="200" class="gradeimages"/>
+			</div>
+			<!--end of Kaitlyn-->
+
+
+            <center><div id="playagain">
+	        	<input type="button" class="PlayButton" value="Play Again" onClick="playAgain()">
+	        </div></center>
+		</div>
+        <!--End Laura, Kaitlyn and Ryan-->
+         
+	</body>
+</html>

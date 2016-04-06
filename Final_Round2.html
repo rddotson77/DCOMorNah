@@ -1,0 +1,724 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+		<title>DCOM OR NAH</title>
+		<link href="DCOMorNahCSS.css" rel="stylesheet" type="text/css">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js" type="text/javascript"></script>
+		<script>
+			var score = 0; //variable used to hold score
+			var laptopsLeft = 4; //variable used to hold amount of laptops/questions left
+			/*Kaitlyn's code*/
+			$(document).ready(function() {
+				$('#instructions').hide().fadeIn(1000);
+				$('#wrapper').hide(); //hides instructions and then fades them in on load
+			/*End Kaitlyn*/
+			
+			/*Sarah and Ryan's code
+				Start hide laptops and show questions*/
+				$("#laptop1").click(function(){ //when a laptop is clicked,
+					$("#laptop1").css("visibility", "hidden"); //hide it 
+					$("#question1").show("slow"); //and bring up the question div
+					$("#q1").val("No"); //this sets the value for q1 in the hidden form to "No", since it was clicked and should be hidden next round
+				});
+				$("#laptop2").click(function(){ //repeat for each laptop
+					$("#laptop2").css("visibility", "hidden");
+					$("#question2").show("slow");
+					$("#q2").val("No");
+				});
+				$("#laptop3").click(function(){
+					$("#laptop3").css("visibility", "hidden");
+					$("#question3").show("slow");
+					$("#q3").val("No");
+				});
+				$("#laptop4").click(function(){
+					$("#laptop4").css("visibility", "hidden");
+					$("#question4").show("slow");
+					$("#q4").val("No");
+				});
+				$("#laptop5").click(function(){
+					$("#laptop5").css("visibility", "hidden");
+					$("#question5").show("slow");
+					$("#q5").val("No");
+				});
+				$("#laptop6").click(function(){
+					$("#laptop6").css("visibility", "hidden");
+					$("#question6").show("slow");
+					$("#q6").val("No");
+				});
+				$("#laptop7").click(function(){
+					$("#laptop7").css("visibility", "hidden");
+					$("#question7").show("slow");
+					$("#q7").val("No");
+				});
+				$("#laptop8").click(function(){
+					$("#laptop8").css("visibility", "hidden");
+					$("#question8").show("slow");
+					$("#q8").val("No");
+				});
+				$("#laptop9").click(function(){
+					$("#laptop9").css("visibility", "hidden");
+					$("#question9").show("slow");
+					$("#q9").val("No");
+				});
+				$("#laptop10").click(function(){
+					$("#laptop10").css("visibility", "hidden");
+					$("#question10").show("slow");
+					$("#q10").val("No");
+				});
+				$("#laptop11").click(function(){
+					$("#laptop11").css("visibility", "hidden");
+					$("#question11").show("slow");
+					$("#q11").val("No");
+				});
+				$("#laptop12").click(function(){
+					$("#laptop12").css("visibility", "hidden");
+					$("#question12").show("slow");
+					$("#q12").val("No");
+				});
+				$("#laptop13").click(function(){
+					$("#laptop13").css("visibility", "hidden");
+					$("#question13").show("slow");
+					$("#q13").val("No");
+				});
+				$("#laptop14").click(function(){
+					$("#laptop14").css("visibility", "hidden");
+					$("#question14").show("slow");
+					$("#q14").val("No");
+				});
+				$("#laptop15").click(function(){
+					$("#laptop15").css("visibility", "hidden");
+					$("#question15").show("slow");
+					$("#q15").val("No");
+				});
+				$("#laptop16").click(function(){
+					$("#laptop16").css("visibility", "hidden");
+					$("#question16").show("slow");
+					$("#q16").val("No");
+				});
+				$("#laptop17").click(function(){
+					$("#laptop17").css("visibility", "hidden");
+					$("#question17").show("slow");
+					$("#q17").val("No");
+				});
+				$("#laptop18").click(function(){
+					$("#laptop18").css("visibility", "hidden");
+					$("#question18").show("slow");
+					$("#q18").val("No");
+				});
+				$("#laptop19").click(function(){
+					$("#laptop19").css("visibility", "hidden");
+					$("#question19").show("slow");
+					$("#q19").val("No");
+				});
+				$("#laptop20").click(function(){
+					$("#laptop20").css("visibility", "hidden");
+					$("#question20").show("slow");
+					$("#q20").val("No");
+				}); /*End hide laptop and show questions
+					End Sarah and Ryan*/
+
+				//Ryan (and Shapiro's) code
+				function getQueryVariable(variable) //Shapiro's function for reading the URL
+				{
+			       var query = window.location.search.substring(1); //substring and parsing stuff happens here
+			       var vars = query.split("&");
+			       for (var i=0;i<vars.length;i++) {
+		               var pair = vars[i].split("=");
+		               if(pair[0] == variable){return pair[1];}
+			       }
+			       return(false);
+				}
+
+				score = getQueryVariable("NScore"); //grab the score out of the URL
+				score = Number(score); //convert the score string into a number, so math can be done on it
+				var q1var = getQueryVariable("q1"); //grab the yes or no status for question 1, save it into a variable
+				var q2var = getQueryVariable("q2"); //repeat
+				var q3var = getQueryVariable("q3");
+				var q4var = getQueryVariable("q4");
+				var q5var = getQueryVariable("q5");
+				var q6var = getQueryVariable("q6");
+				var q7var = getQueryVariable("q7");
+				var q8var = getQueryVariable("q8");
+				var q9var = getQueryVariable("q9");
+				var q10var = getQueryVariable("q10");
+				var q11var = getQueryVariable("q11");
+				var q12var = getQueryVariable("q12");
+				var q13var = getQueryVariable("q13");
+				var q14var = getQueryVariable("q14");
+				var q15var = getQueryVariable("q15");
+				var q16var = getQueryVariable("q16");
+				var q17var = getQueryVariable("q17");
+				var q18var = getQueryVariable("q18");
+				var q19var = getQueryVariable("q19");
+				var q20var = getQueryVariable("q20");
+
+				if (q1var == "No") { //if q1 was set to no, then it needs to hidden
+					$("#laptop1").css("visibility", "hidden"); //so hide it
+				}
+
+				if (q2var == "No") { //repeat for all 20
+					$("#laptop2").css("visibility", "hidden");
+				}
+
+				if (q3var == "No") {
+					$("#laptop3").css("visibility", "hidden");
+				}
+
+				if (q4var == "No") {
+					$("#laptop4").css("visibility", "hidden");
+				}
+
+				if (q5var == "No") {
+					$("#laptop5").css("visibility", "hidden");
+				}
+
+				if (q6var == "No") {
+					$("#laptop6").css("visibility", "hidden");
+				}
+
+				if (q7var == "No") {
+					$("#laptop7").css("visibility", "hidden");
+				}
+
+				if (q8var == "No") {
+					$("#laptop8").css("visibility", "hidden");
+				}
+
+				if (q9var == "No") {
+					$("#laptop9").css("visibility", "hidden");
+				}
+
+				if (q10var == "No") {
+					$("#laptop10").css("visibility", "hidden");
+				}
+
+				if (q11var == "No") {
+					$("#laptop11").css("visibility", "hidden");
+				}
+
+				if (q12var == "No") {
+					$("#laptop12").css("visibility", "hidden");
+				}
+
+				if (q13var == "No") {
+					$("#laptop13").css("visibility", "hidden");
+				}
+
+				if (q14var == "No") {
+					$("#laptop14").css("visibility", "hidden");
+				}
+
+				if (q15var == "No") {
+					$("#laptop15").css("visibility", "hidden");
+				}
+
+				if (q16var == "No") {
+					$("#laptop16").css("visibility", "hidden");
+				}
+
+				if (q17var == "No") {
+					$("#laptop17").css("visibility", "hidden");
+				}
+
+				if (q18var == "No") {
+					$("#laptop18").css("visibility", "hidden");
+				}
+
+				if (q19var == "No") {
+					$("#laptop19").css("visibility", "hidden");
+				}
+
+				if (q20var == "No") {
+					$("#laptop20").css("visibility", "hidden");
+				}
+
+				//update the hidden form so the next round is set up properly
+				$("#NScore").val(score); //set score in the form
+				$("#q1").val(q1var); //set yes or no for each question
+				$("#q2").val(q2var); //repeat
+				$("#q3").val(q3var);
+				$("#q4").val(q4var);
+				$("#q5").val(q5var);
+				$("#q6").val(q6var);
+				$("#q7").val(q7var);
+				$("#q8").val(q8var);
+				$("#q9").val(q9var);
+				$("#q10").val(q10var);
+				$("#q11").val(q11var);
+				$("#q12").val(q12var);
+				$("#q13").val(q13var);
+				$("#q14").val(q14var);
+				$("#q15").val(q15var);
+				$("#q16").val(q16var);
+				$("#q17").val(q17var);
+				$("#q18").val(q18var);
+				$("#q19").val(q19var);
+				$("#q20").val(q20var);
+				//end Ryan
+
+			}); //end document.ready
+
+			/*Kaitlyn and Ryan's code*/
+			function CloseInstructions() {
+			$('#instructions').fadeOut(1000);
+			$('#wrapper').fadeIn(2000);
+			$("#b").html(score); //set the score in the html
+			}//fades out instructions when Okay is clicked
+			/*End Ryan and Kaitlyn*/
+			
+			/*Ryan's code*/
+			function right(quesNum) {
+				score = score + 20; //answered correctly, add 10 to score
+				$("#b").html(score); //update the score in the html
+				$("#question"+quesNum).hide("slow"); //hide the question, it's been answered
+				$("#correct").show().delay(2000).fadeOut(500); //show the correct answer message- show it, then delay, then fadeout
+				laptopsLeft = laptopsLeft - 1; //subtract 1 from amount of laptops/questions left in round
+				$("#c").html(laptopsLeft); //update the number of laptops/questions left in html
+
+				$("#NScore").val(score); //this updates the score value in the hidden form for the next round
+				if(laptopsLeft == 0) { //if the amount of laptops left is zero, end of round. 
+					setTimeout(function(){document.getElementById("nextPage").submit();}, 2000); //wait for the correct div, then submit the form and go to the next round
+				}
+			}
+
+			function wrong(quesNum) { //function that's called when question 1 is answered incorrectly
+				score = score - 20; //answered incorrectly, subtract 10 from score
+				$("#b").html(score);
+				$("#question"+quesNum).hide("slow");
+				$("#incorrect").show().delay(2000).fadeOut(500); //show the incorrect answer message- show it, then delay, then fadeout
+				laptopsLeft = laptopsLeft - 1;
+				$("#c").html(laptopsLeft);
+
+				$("#NScore").val(score);
+				if(laptopsLeft == 0) {
+					setTimeout(function(){document.getElementById("nextPage").submit();}, 2000);
+				}
+			}
+
+			function next10() { //need to handle question 10 and 11 different for videos. This function hides video and shows question
+				$("#question10").hide("slow");
+				$("#question10video").show("slow");
+			}
+
+			function right10() { //special because different div name, otherwise same as above
+				score = score + 20;
+				$("#b").html(score);
+				$("#question10video").hide("slow");
+				$("#correct").show().delay(2000).fadeOut(500);
+				laptopsLeft = laptopsLeft - 1;
+				$("#c").html(laptopsLeft);
+
+				$("#NScore").val(score);
+				if(laptopsLeft == 0) {
+					setTimeout(function(){document.getElementById("nextPage").submit();}, 2000);
+				}
+			}
+
+			function wrong10() {
+				score = score - 20;
+				$("#b").html(score);
+				$("#question10video").hide("slow");
+				$("#incorrect").show().delay(2000).fadeOut(500);
+				laptopsLeft = laptopsLeft - 1;
+				$("#c").html(laptopsLeft);
+
+				$("#NScore").val(score);
+				if(laptopsLeft == 0) {
+					setTimeout(function(){document.getElementById("nextPage").submit();}, 2000);
+				}
+			}
+
+			function next11() { //repeat for other video question
+				$("#question11").hide("slow");
+				$("#question11video").show("slow");
+			}
+
+			function right11() {
+				score = score + 20;
+				$("#b").html(score);
+				$("#question11video").hide("slow");
+				$("#correct").show().delay(2000).fadeOut(500);
+				laptopsLeft = laptopsLeft - 1;
+				$("#c").html(laptopsLeft);
+
+				$("#NScore").val(score);
+				if(laptopsLeft == 0) {
+					setTimeout(function(){document.getElementById("nextPage").submit();}, 2000);
+				}
+			}
+
+			function wrong11() {
+				score = score - 20;
+				$("#b").html(score);
+				$("#question11video").hide("slow");
+				$("#incorrect").show().delay(2000).fadeOut(500);
+				laptopsLeft = laptopsLeft - 1;
+				$("#c").html(laptopsLeft);
+
+				$("#NScore").val(score);
+				if(laptopsLeft == 0) {
+					setTimeout(function(){document.getElementById("nextPage").submit();}, 2000);
+				}
+			}
+		</script>
+        
+	</head>
+
+	<body>
+		<!-- This is a hidden form that's used to place these values in the URL so that the next round can parse and pull the values out -->
+		<form name="nextPage" id="nextPage" method="get" action="Final_Round3.html">
+			<input type="hidden" id="NScore" name="NScore" VALUE="0"> <!-- value for the new score going to the next round --> 
+			<input type="hidden" id="q1" name="q1" VALUE=""> <!-- each of these represents if a laptop is visible. If it was clicked, the value should be 
+																		set to "No", and if not is should stay as "Yes" -->
+			<input type="hidden" id="q2" name="q2" VALUE="Yes">
+			<input type="hidden" id="q3" name="q3" VALUE="Yes">
+			<input type="hidden" id="q4" name="q4" VALUE="Yes">
+			<input type="hidden" id="q5" name="q5" VALUE="Yes">
+			<input type="hidden" id="q6" name="q6" VALUE="Yes">
+			<input type="hidden" id="q7" name="q7" VALUE="Yes">
+			<input type="hidden" id="q8" name="q8" VALUE="Yes">
+			<input type="hidden" id="q9" name="q9" VALUE="Yes">
+			<input type="hidden" id="q10" name="q10" VALUE="Yes">
+			<input type="hidden" id="q11" name="q11" VALUE="Yes">
+			<input type="hidden" id="q12" name="q12" VALUE="Yes">
+			<input type="hidden" id="q13" name="q13" VALUE="Yes">
+			<input type="hidden" id="q14" name="q14" VALUE="Yes">
+			<input type="hidden" id="q15" name="q15" VALUE="Yes">
+			<input type="hidden" id="q16" name="q16" VALUE="Yes">
+			<input type="hidden" id="q17" name="q17" VALUE="Yes">
+			<input type="hidden" id="q18" name="q18" VALUE="Yes">
+			<input type="hidden" id="q19" name="q19" VALUE="Yes">
+			<input type="hidden" id="q20" name="q20" VALUE="Yes">
+		</form>
+       	<!--End Ryan-->
+
+		<!--Kaitlyn's Code for Instructions-->
+		<div id="instructions">
+			<h2>Round Two</h2>
+			<p>Pick 4 laptops, each laptop is valued at 20 points.</p>
+			<input type="button" class="OkayButton" value="OKAY" onClick="CloseInstructions()"></div>
+		<!--End Kaitlyn-->
+		
+        <!--Laura & Ryan's code-->
+        <div id="wrapper">
+        	<div id="correct">
+        		<br><br><br><br><br><br>
+	        	<center>
+		    		<img src="Images/correct2.png" width="600" height="350" alt=""/> 
+	        	</center>
+	        </div>
+
+			<div id="incorrect">
+				<br><br><br><br><br><br>
+	        	<center>
+		    		<img src="Images/incorrect2.png" width="600" height="350" alt=""/> 
+	       	 	</center>	
+			</div>
+			
+			<header>
+				<center><img src="Images/HEADER-01.png" alt="header" width="818" height="148"/></center>
+			</header>
+
+			<div id="bottomheader">
+
+				<div id="theScore">
+					<h2><center>Your Score:</h2></center>
+					<h3><center><b id="b"><script>document.write(score)</script></b> points</center></h3>
+				</div>
+
+				<div id="round">
+					<center>Round 2:</center>
+				</div>
+
+				<div id="laptopsleft">
+					<center>You have <c id="c"><script>document.write(laptopsLeft)</script></c> laptops <br> left to pick!</center>
+				</div>
+			
+            </div>
+            <!--End Laura & Ryan-->
+
+			<!--Laura, Sarah, Kaitlyn & Ryan's code-->
+			<div id="laptops">
+				<div id="laptop1" class="q1varDiv">
+					<img src="Images/Laptop1.png" width="175" height="120" alt=""/> 
+				</div>
+
+				<div id="question1">
+					<img src="Images/Question1.png" alt="Department Head" width="100" height="100" class="displayed"/>
+					<h4> Who is the head of the department? </h4>
+                    <div id="answers">
+						<center> <p> <a class="wrong" href="javascript:wrong(1)">a. Kline</a> </p> </center>
+						<center> <p> <a class="right" href="javascript:right(1)">b. Ritchie</a> </p> </center>
+						<center> <p> <a class="wrong" href="javascript:wrong(1)">c. Samuel</a> </p> </center>
+						<center> <p> <a class="wrong" href="javascript:wrong(1)">d. Pettice</a> </p> </center>
+                        <!-- when clicked, call wrong() or right() function -->
+                    </div>
+				</div>
+
+				<div id="laptop2">
+					<img src="Images/Laptop2.png" alt="" width="175" height="120"/>
+				</div>
+
+				<div id="question2">
+					<img src="Images/Question2.jpg" alt="Lynch 118" class="displayed" width="100" height="200"/>
+					<h4> Which wall in the DCOM room does not have a white board? </h4>
+                    <div id="answers">
+						<center> <p> <a class="right" href="javascript:right(2)">a. Back Wall</a> </p> </center>
+						<center> <p> <a class="wrong" href="javascript:wrong(2)">b. Left Wall</a> </p> </center>
+						<center> <p> <a class="wrong" href="javascript:wrong(2)">c. Right Wall</a> </p> </center>
+						<center> <p> <a class="wrong" href="javascript:wrong(2)">d. Front Wall</a> </p> </center>
+                    </div>
+				</div>
+
+				<div id="laptop3">
+					<img src="Images/Laptop3.png" alt="" width="175" height="120"/>
+				</div>
+
+				<div id="question3">
+					<img src="Images/Question3.jpg" alt="Concentrations" class="displayed" width="416" height="104"/>
+					<h4> Which is not a concentration of DCOM? </h4>
+						<center> <p> <a class="wrong" href="javascript:wrong(3)">a. Programming</a> </p> </center>
+						<center> <p> <a class="wrong" href="javascript:wrong(3)">b. Communications</a> </p> </center>
+						<center> <p> <a class="right" href="javascript:right(3)">c. Interface Design</a> </p></center>
+						<center> <p> <a class="wrong" href="javascript:wrong(3)">d. Videography</a> </p> </center>
+				</div>
+
+				<div id="laptop4">
+					<img src="Images/Laptop4.png" alt="" width="175" height="120"/>
+				</div>
+
+				<div id="question4">
+					<img src="Images/Question4.jpg" alt="Kline"class="displayed"/>
+					<h4> Which one of these jokes does Kline NOT say on a regular basis? </h4>
+						<center> <p> <a class="wrong" href="javascript:wrong(4)">a. "I had a girlfriend like that once."</a> </p> </center>
+						<center> <p> <a class="wrong" href="javascript:wrong(4)">b. "See you back in [insert class here] in the Fall."</a> </p> </center>
+						<center> <p> <a class="right" href="javascript:right(4)">c. "I love tater tots and root beer."</a> </p> </center>
+						<center> <p> <a class="wrong" href="javascript:wrong(4)">d. "Some douchebag stole my markers."</a> </p> </center>
+				</div>
+
+				<div id="laptop5">
+					<img src="Images/Laptop5.png" alt="" width="175" height="120"/>
+				</div>
+
+				<div id="question5">
+					<img src="Images/Question5.png" alt="Cupcake" class="displayed" width="100" height="112"/>
+					<h4> Which Professor's wife has their own cupcake business? </h4>
+						<center> <p> <a class="right" href="javascript:right(5)">a. Samuel</a> </p> </center>
+						<center> <p> <a class="wrong" href="javascript:wrong(5)">b. Ritchie</a> </p> </center>
+						<center> <p> <a class="wrong" href="javascript:wrong(5)">c. Kline</a> </p> </center>
+						<center> <p> <a class="wrong" href="javascript:wrong(5)">d. Shapiro</a> </p> </center>
+				</div>
+
+				<div id="laptop6">
+					<img src="Images/Laptop6.png" alt="" width="175" height="120"/>
+				</div>
+
+				<div id="question6">
+					<img src="Images/Question6.png" alt="Porfolio" class="displayed" width="206" height="75"/>
+					<h4> When do Digital Communications students present their Portfolio? </h4>
+						<center> <p> <a class="wrong" href="javascript:wrong(6)">a. Fall of Sophomore Year</a> </p> </center>
+						<center> <p> <a class="right" href="javascript:right(6)">b. Spring of Sophomore Year</a> </p> </center>
+						<center> <p> <a class="wrong" href="javascript:wrong(6)">c. Fall of Junior Year</a> </p> </center>
+						<center> <p> <a class="wrong" href="javascript:wrong(6)">d. Senior Year</a> </p> </center>
+				</div>
+
+				<div id="laptop7">
+					<img src="Images/Laptop7.png" alt="" width="175" height="120"/>
+				</div>
+
+				<div id="question7">
+					<img src="Images/Question7.jpg" alt="Abbreviation" class="displayed" width="100" height="125"/>
+					<h4> What is the correct abbreviation of Digital Communications? </h4>
+						<center> <p> <a class="wrong" href="javascript:wrong(7)">a. DCOM</a> </p> </center>
+						<center> <p> <a class="wrong" href="javascript:wrong(7)">b. DigiCom</a> </p> </center>
+						<center> <p> <a class="wrong" href="javascript:wrong(7)">c. DigiComm</a> </p> </center>
+						<center> <p> <a class="right" href="javascript:right(7)">d. There is not an official correct abbreviation.</a> </p> </center>
+				</div>
+
+				<div id="laptop8">
+					<img src="Images/Laptop8.png" alt="" width="175" height="120"/>
+				</div>
+
+				<div id="question8">
+					<img src="Images/Question8.png" alt="Unofficial" class="displayed" width="150" height="75"/>
+					<h4> Who is not an official Professor of Digital Communications? </h4>
+						<center> <p> <a class="wrong" href="javascript:wrong(8)">a. Pettice</a> </p> </center>
+						<center> <p> <a class="wrong" href="javascript:wrong(8)">b. Ritchie</a> </p> </center>
+						<center> <p> <a class="right" href="javascript:right(8)">c. Shapiro</a> </p> </center>
+						<center> <p> <a class="wrong" href="javascript:wrong(8)">d. Samuel</a> </p> </center>
+				</div>
+
+				<div id="laptop9">
+					<img src="Images/Laptop9.png" alt="" width="175" height="120"/>
+				</div>
+
+				<div id="question9">
+					<img src="Images/Question9.jpg" alt="Lounge" class="displayed" width="183" height="100"/>
+					<h4> True or False: Digital Communications students do NOT have their own lounge. </h4>
+						<center> <p> <a class="wrong" href="javascript:wrong(9)">a. True</a> </p> </center>
+						<center> <p> <a class="right" href="javascript:right(9)">b. False</a> </p> </center>
+				</div>
+
+				<div id="laptop10">
+					<img src="Images/Laptop10.png" alt="" width="175" height="120"/>
+				</div>
+
+				<div id="question10"> <!--Video Appears-->
+                	<h4>Watch this short video and answer the question that follows.</h4>
+                	<iframe width="400" height="250" src="https://www.youtube.com/embed/b4IjT3CDEk0" id="video10">
+                    </iframe>
+                    <p><input type="button" id="VideoButton10" value="NEXT" onClick="javascript:next10()"></p>
+				</div>
+                
+                <div id="question10video"> <!--Question appears after video is watched-->
+                	<h4>What color marker was used on the first section of text located on the white board?</h4>
+                		<center> <p> <a class="wrong" href="javascript:wrong10()">a. Blue</a> </p> </center>
+						<center> <p> <a class="right" href="javascript:right10()">b. Red</a> </p> </center>
+						<center> <p> <a class="wrong" href="javascript:wrong10()">c. Black</a> </p> </center>
+						<center> <p> <a class="wrong" href="javascript:wrong10()">d. Green</a> </p> </center>
+                </div>
+
+				<div id="laptop11">
+					<img src="Images/Laptop11.png" alt="" width="175" height="120"/>
+				</div>
+                
+				<div id="question11"> <!--Video Appears-->
+					<h4>Watch this short video and answer the question that follows.</h4>
+                    <iframe width="400" height="250" src="https://www.youtube.com/embed/zfnO0rxNlEA" frameborder="0" id="video11">  					
+                    </iframe>
+                    <p><input type="button" id="VideoButton11" value="NEXT" onClick="javascript:next11()"></p>
+
+				</div>
+                
+                <div id="question11video"> <!--Question appears after video is watched-->
+                	<h4>How many windows are in the Digital Communications Lounge?</h4>
+                		<center> <p> <a class="wrong" href="javascript:wrong11()">a. 8</a> </p> </center>
+						<center> <p> <a class="wrong" href="javascript:wrong11()">b. 7</a> </p> </center>
+						<center> <p> <a class="wrong" href="javascript:wrong11()">c. 6</a> </p> </center>
+						<center> <p> <a class="right" href="javascript:right11()">d. 5</a> </p> </center>
+                </div>
+
+				<div id="laptop12">
+					<img src="Images/Laptop12.png" alt="" width="175" height="120"/>
+				</div>
+
+				<div id="question12">
+					<img src="Images/Question12.png" alt="Interdisciplinary" class="displayed" width="100" height="150"/>
+					<h4> True or False: Digital Communications is an interdisciplinary major? </h4>
+						<center> <p> <a class="right" href="javascript:right(12)">a. True</a> </p> </center>
+						<center> <p> <a class="wrong" href="javascript:wrong(12)">b. False</a> </p> </center>
+				</div>
+
+				<div id="laptop13">
+					<img src="Images/Laptop13.png"alt="" width="175" height="120"/>
+				</div>
+
+				<div id="question13">
+					<img src="Images/Question13.jpg" alt="Login" class="displayed" width="290" height="105"/>
+					<h4> If a professor doesn't log out of the DCOM computer...What happens? </h4>
+						<center> <p> <a class="wrong" href="javascript:wrong(13)">a. It explodes.</a> </p> </center>
+						<center> <p> <a class="wrong" href="javascript:wrong(13)">b. Someone hacks it.</a> </p> </center>
+						<center> <p> <a class="right" href="javascript:right(13)">c. Their picture icon is pasted to cover the desktop.</a> </p> </center>
+						<center> <p> <a class="wrong" href="javascript:wrong(13)">d. Their picture is photoshopped and put as their new profile picture.</a> </p> </center>
+				</div>
+
+				<div id="laptop14">
+					<img src="Images/Laptop14.png" alt="" width="175" height="120"/>
+				</div>
+
+				<div id="question14">
+					<img src="Images/Question14.jpg" alt="Poster" class="displayed" width="137" height="100"/>
+					<h4> What did the poster say that was briefly taken down in the DCOM lounge? </h4>
+						<center> <p> <a class="wrong" href="javascript:wrong(14)">a. "Eat your damn tater tots."</a> </p> </center>
+						<center> <p> <a class="right" href="javascript:right(14)">b. "Kern your shit."</a> </p> </center>
+						<center> <p> <a class="wrong" href="javascript:wrong(14)">c. "DCOM ROX YOUR FREAKING SOCKS."</a> </p> </center>
+						<center> <p> <a class="wrong" href="javascript:wrong(14)">d. "Damn kerning."</a> </p> </center>
+				</div>
+
+				<div id="laptop15">
+					<img src="Images/Laptop15.png" alt="" width="175" height="120"/>
+				</div>
+
+				<div id="question15">
+					<img src="Images/Question15.jpg" alt="Room" class="displayed" width="200" height="200"/>
+					<h4> What is the Digital Communications room number? </h4>
+						<center> <p> <a class="wrong" href="javascript:wrong(15)">a. 120</a> </p> </center>
+						<center> <p> <a class="wrong" href="javascript:wrong(15)">b. 116</a> </p> </center>
+						<center> <p> <a class="wrong" href="javascript:wrong(15)">c. 114</a> </p> </center>
+						<center> <p> <a class="right" href="javascript:right(15)">d. 118</a> </p> </center>
+				</div>
+
+				<div id="laptop16">
+					<img src="Images/Laptop16.png" alt="" width="175" height="120"/>
+				</div>
+
+				<div id="question16">
+					<img src="Images/Question16.jpg" alt="IT" class="displayed" width="316" height="100"/>
+					<h4> Who is the head of the IT Department? </h4>
+						<center> <p> <a class="right" href="javascript:right(16)">a. Shapiro</a> </p> </center>
+						<center> <p> <a class="wrong" href="javascript:wrong(16)">b. Ritchie</a> </p> </center>
+						<center> <p> <a class="wrong" href="javascript:wrong(16)">c. Kline</a> </p> </center>
+						<center> <p> <a class="wrong" href="javascript:wrong(16)">d. Pettice</a> </p> </center>
+				</div>
+
+				<div id="laptop17">
+					<img src="Images/Laptop17.png" alt="" width="175" height="120"/>
+				</div>
+
+				<div id="question17">
+					<img src="Images/Question17.png" alt="Students Study" class="displayed" width="262" height="64"/>
+					<h4> Digital Communications students study...</h4>
+						<center> <p> <a class="right" href="javascript:right(17)">a. Human Centered Design (HCD)</a> </p> </center>
+						<center> <p> <a class="wrong" href="javascript:wrong(17)">b. Designed Human Design (DHD)</a> </p> </center>
+						<center> <p> <a class="wrong" href="javascript:wrong(17)">c. Human User Design (HUD)</a> </p> </center>
+						<center> <p> <a class="wrong" href="javascript:wrong(17)">d. Human Experienced Design (HED)</a> </p> </center>
+				</div>
+
+				<div id="laptop18">
+					<img src="Images/Laptop18.png" alt="" width="175" height="120"/>
+				</div>
+
+				<div id="question18">
+					<img src="Images/Question18.png" alt="Horror Vacui" class="displayed" width="60" height="85"/>
+					<h4> Horror Vacui is the tendancy to...</h4>
+						<center> <p> <a class="wrong" href="javascript:wrong(18)">a. Make designs horrific!</a> </p> </center>
+						<center> <p> <a class="right" href="javascript:right(18)">b. Make designs filled with objects and elements. Pile as much content on the page as possbile!</a> </p> </center>
+						<center> <p> <a class="wrong" href="javascript:wrong(18)">c. Make designs simple. The less on the page the better.</a> </p> </center>
+						<center> <p> <a class="wrong" href="javascript:wrong(18)">d. Make designs look perfect. Perfection is the key.</a> </p> </center>
+				</div>
+
+				<div id="laptop19">
+					<img src="Images/Laptop19.png" alt="" width="175" height="120"/>
+				</div>
+
+				<div id="question19">
+					<img src="Images/Question19.png" alt="Fail" class="displayed" width="144" height="100"/>
+					<h4> What is Ritchie's phrase? </h4>
+						<center><p> <a class="right" href="javascript:right(19)">a. "Fail early, fail often, fail forward."</a> </p></center>
+						<center><p> <a class="wrong" href="javascript:wrong(19)">b. "Fail everyday."</a> </p> </center>
+						<center><p> <a class="wrong" href="javascript:wrong(19)">c. "Always try your best and you will never fail."</a> </p></center>
+						<center><p> <a class="wrong" href="javascript:wrong(19)">d. "If you keep failing, you'll fail out of DCOM."</a> </p></center>
+				</div>
+
+				<div id="laptop20">
+					<img src="Images/Laptop20.png" alt="" width="175" height="120"/>
+				</div>
+
+				<div id="question20">
+					<img src="Images/Question20.png" alt="ape" class="displayed" width="90" height="90"/>
+					<h4> What does APE stand for? </h4>
+						<center> <p> <a class="wrong" href="javascript:wrong(20)">a. Audience, Pupils, Ego.</a> </p> </center>
+						<center> <p> <a class="wrong" href="javascript:wrong(20)">b. Audience, Principles of Design, Environment.</a> </p> </center>
+						<center> <p> <a class="right" href="javascript:right(20)">c. Audience, Purpose, Environment.</a> </p> </center>
+						<center> <p> <a class="wrong" href="javascript:wrong(20)">d. Ape...Like the monkey.</a> </p> </center>
+				</div>
+
+			</div> 
+				<!--Laura, Sarah, Kaitlyn & Ryan's code-->
+		</div>
+	</body>
+</html>
